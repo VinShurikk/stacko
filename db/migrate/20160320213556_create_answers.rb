@@ -4,7 +4,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :question_id
       t.string :text
       t.integer :user_id
-      t.integer :rating
+      t.integer :rating, :default => 0
 
       t.timestamps
     end

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320072718) do
+ActiveRecord::Schema.define(version: 20160320213556) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "question_id"
+    t.string   "text"
+    t.integer  "user_id"
+    t.integer  "rating",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.string   "text"

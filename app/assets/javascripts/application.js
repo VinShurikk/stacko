@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.tokenize
 //= require jquery-ui/autocomplete
+//= require ckeditor/ckeditor
 //= require jquery.tokenize
 //= require_tree .
 

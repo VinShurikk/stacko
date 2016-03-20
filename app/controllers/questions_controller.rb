@@ -111,7 +111,8 @@ class QuestionsController < ApplicationController
     end
     respond_to do |format|
       format.js {render 'questions/update_side'}
-    end  end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -61,14 +61,48 @@ class AnswersController < ApplicationController
     end
   end
 
+  def vote_up
+    answer_vote = get_vote
+    user = current_user
+    if answer_vote==nil
+      @answer.vote_up user
+    else
+      if !answer_vote.action
+        @answer.vote_clear answer_vote
+      end
+    end
+    respond_to do |format|
+      format.js {render 'answers/update_side'}
+    end
+  end
+
+  def vote_down
+    answer_vote = get_vote
+    user = current_user
+    if answer_vote==nil
+      @answer.vote_down user
+    else
+      if answer_vote.action
+        @answer.vote_clear answer_vote
+      end
+    end
+    respond_to do |format|
+      format.js {render 'answers/update_side'}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_answer
       @answer = Answer.find(params[:id])
     end
 
+    def get_vote
+      AnswerVote.find_by(user: current_user, answer: @answer)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:question_id, :text, :user_id, :rating)
+      params.require(:answer).permit(:question_id, :text)
     end
 end

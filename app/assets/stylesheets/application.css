@@ -53,10 +53,6 @@ body {
     box-shadow: 0 1px 2px rgba(34,36,38,0.1) inset;
 }
 
-.field :hover{
-    border: 1px solid red;
-}
-
 .field textarea {
     width: 100%;
     background: #FFF;
@@ -86,9 +82,12 @@ body {
     text-align: center;
 }
 
-#question .text {
+#question .content {
     display: inline-block;
     width: 80%;
+}
+
+#question .text {
     text-align: justify;
 }
 

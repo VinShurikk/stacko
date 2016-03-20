@@ -7,23 +7,48 @@
   <div class="sidebar">
     <%= render 'questions/side'%>
   </div>
-  <div class="text">
-    <%= @question.text %>
+  <div class="content">
+    <div class="text">
+      <%= @question.text.html_safe %> %>
+    </div>
+    <%if @question.tags.length>0 %>
+        <div class="tags">
+          <%@question.tags.each do |tag| %>
+              <div class="tag"><%=tag.text%></div>
+          <% end %>
+        </div>
+    <% end %>
+    <div class="comment-label">
+      Add comment
+    </div>
   </div>
-  <%if @question.tags.length>0 %>
-      <div class="tags">
-        <%@question.tags.each do |tag| %>
-            <div class="tag"><%=tag.text%></div>
-        <% end %>
+</div>
+<!-- Answers block -->
+<%if @question.answers.count>0 %>
+  <div class="title separator">
+    <%= @question.answers.count %>
+    <%= @question.answers.count>1 ? 'Answers' : 'Answer' %>
+  </div>
+  <%@question.answers.each do |answer|%>
+    <div id="answer separator">
+      <div class="sidebar">
+        <%= render 'questions/answer_side', :locals => {:answer=>answer} %>
       </div>
+      <div class="content">
+        <div class="text">
+          <%= @answer.text.html_safe %>
+        </div>
+        <div class="comment-label">
+          Add comment
+        </div>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>
+<!-- END Answers block -->
+<%=render 'answers/add_answer'%>
 
 
-
-<div id="comment">
-  Add answer
-</div>
 
 
 

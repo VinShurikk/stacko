@@ -4,19 +4,28 @@
   <%= @question.title %>
 </div>
 <div id="question">
-
+  <div class="sidebar">
+    <%= render 'questions/side'%>
+  </div>
   <div class="text">
     <%= @question.text %>
   </div>
-  <div class="sidebar">
-    <div>+1</div>
-    <div><%=@question.rating%></div>
-    <div>+1</div>
-  </div>
+  <%if @question.tags.length>0 %>
+      <div class="tags">
+        <%@question.tags.each do |tag| %>
+            <div class="tag"><%=tag.text%></div>
+        <% end %>
+      </div>
+  <% end %>
 </div>
+
+
+
 <div id="comment">
   Add answer
 </div>
+
+
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

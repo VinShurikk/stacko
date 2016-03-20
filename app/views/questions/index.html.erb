@@ -8,7 +8,8 @@
         <%=question.title%>
       </div>
       <div class="question-body">
-        <%=question.text%>
+        <%=
+          truncate(question.text, length: 100) { link_to "Read more", question_path(question.id) }%>
       </div>
       <div class="question-footer">
         <%=question.user_id%>

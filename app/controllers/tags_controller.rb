@@ -5,6 +5,10 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     @tags = Tag.all
+    respond_to do |format|
+      format.html
+      format.json { @books = Tag.search(params[:term]) }
+    end
   end
 
   # GET /tags/1
@@ -61,6 +65,12 @@ class TagsController < ApplicationController
     end
   end
 
+  def search
+    search = Tag.search(params[:term])
+    puts search.length
+    render json: search
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
@@ -69,6 +79,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:text)
+      params.require(:tag).permit(:text, :term)
     end
 end

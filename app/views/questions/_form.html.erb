@@ -17,6 +17,9 @@
   <div class="field">
     <%= f.text_area :text, rows: 20  %>
   </div>
+    <!--<%= select_tag "tags_list", options_from_collection_for_select(Tag.all, 'id', 'text', @question.tags.map{ |j| j.text }), :multiple => true %>-->
+    <select id="tags_list" name="tags_list[]" class="tags-search"></select>
+    <%= render 'tags/tag'%>
   <div class="actions">
     <%= f.submit %>
   </div>

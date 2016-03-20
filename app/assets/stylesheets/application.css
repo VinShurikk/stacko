@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery-ui/autocomplete
+ *= require jquery.tokenize
  *= require_tree .
  *= require_self
  */
@@ -79,16 +81,55 @@ body {
 }
 
 #question .sidebar {
-    width:50px;
+    width: 50px;
     float: left;
-    margin: 0 0 0 -100%;
+    text-align: center;
 }
+
 #question .text {
-    float: left;
-    width: 90%;
-    margin: 0 0 0 100px;
+    display: inline-block;
+    width: 80%;
+    text-align: justify;
 }
+
 #comment {
     clear: both;
     width: 100%;
 }
+
+.tags-search {
+    width:100%
+}
+
+div.tags-search.Tokenize ul.TokensContainer {
+    height: 25px;
+}
+
+.question-title {
+    padding: 10px 10px 10px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #EEE;
+}
+
+.question-body {
+    padding: 10px 10px 10px 30px;
+}
+
+.vote-item {
+    width: 30px;
+    height: 30px;
+}
+
+div .tag {
+    display: inline;
+    margin-top: 40px;
+    padding: 5px 5px 5px 5px;
+    background: #bfccff;
+    color: #7879a4;
+}
+div .tags {
+    padding-top: 20px;
+}
+
+

@@ -1,0 +1,16 @@
+<div class="separator">
+</div>
+<div id="<%=answer.id%>_answer" class="answer">
+  <div class="sidebar">
+    <%= render 'answers/side', :answer => answer %>
+  </div>
+  <div class="content">
+    <div class="text">
+      <%= answer.text.html_safe %>
+    </div>
+    <div class="comment-label">
+      Add comment
+    </div>
+  </div>
+</div>
+

@@ -5,11 +5,10 @@
 <% @questions.each do |question| %>
     <div id="question<%=question.id%>">
       <div class="question-title">
-        <%=question.title%>
+        <%= link_to question.title, question%>
       </div>
       <div class="question-body">
-        <%=
-          truncate(question.text, length: 100) { link_to "Read more", question_path(question.id) }%>
+        <%=truncate(strip_tags(question.text), length: 100) { link_to 'Read more', question_path(question.id) }%>
       </div>
       <div class="question-footer">
         <%=question.user_id%>

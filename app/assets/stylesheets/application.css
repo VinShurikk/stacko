@@ -76,24 +76,32 @@ body {
     margin-bottom: 1em;
 }
 
-#question .sidebar {
+#question .sidebar,
+.answer .sidebar{
     width: 50px;
     float: left;
     text-align: center;
 }
 
-#question .content {
+#question .content,
+.answer .content{
     display: inline-block;
     width: 80%;
+    min-height: 100px;
 }
 
-#question .text {
+#question .text,
+.answer .text{
     text-align: justify;
 }
 
 #comment {
     clear: both;
     width: 100%;
+}
+
+.comment-label {
+    padding: 15px 0px 15px 0px;
 }
 
 .tags-search {

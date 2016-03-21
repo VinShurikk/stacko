@@ -4,6 +4,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Stacko</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script type="text/javascript">
+    var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+  </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,6 +20,15 @@
 <div class="wrapper">
   <%= yield %>
 </div>
-
+<script>
+  $(document).ready(function() {
+    if ($('textarea').length > 0) {
+      var data = $('textarea');
+      $.each(data, function(i) {
+        CKEDITOR.replace(data[i].id);
+      });
+    }
+  });
+</script>
 </body>
 </html>

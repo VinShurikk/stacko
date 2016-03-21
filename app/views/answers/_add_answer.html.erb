@@ -1,6 +1,7 @@
 <div class="title separator">
   Add Your Answer
 </div>
+<%@answer = Answer.new%>
 <%= form_for(@answer) do |f| %>
     <% if @answer.errors.any? %>
         <div id="error_explanation">
@@ -12,9 +13,9 @@
           </ul>
         </div>
     <% end %>
+    <%= f.hidden_field :question_id, :value => params[:id]%>
     <div class="field">
-      <%= f.label :text %><br>
-      <%= f.text_field :text %>
+      <%= f.text_area :text %>
     </div>
     <div class="actions">
       <%= f.submit 'Post Answer' %>

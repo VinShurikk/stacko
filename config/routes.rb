@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :answers
+  resources :answers do
+    member do
+      put 'vote_up'
+      put 'vote_down'
+    end
+  end
 
   resources :comments
   resources :tags do

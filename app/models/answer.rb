@@ -2,24 +2,22 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   has_many :answer_votes
 
-  def get_vote
+  def get_vote(user)
     @vote = AnswerVote.find_by(user: user, answer: self)
   end
 
-  def is_voted_up
-    vote = get_vote
+  def is_voted_up(user)
+    vote = get_vote user
     if vote==nil
       result = false
     else
       result = vote.action
     end
-    puts to_json: vote
-    puts result
     result
   end
 
-  def is_voted_down
-    vote = get_vote
+  def is_voted_down(user)
+    vote = get_vote user
     if vote==nil
       result = false
     else

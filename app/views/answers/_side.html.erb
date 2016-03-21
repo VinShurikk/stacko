@@ -1,0 +1,5 @@
+<%=link_to image_tag(answer.is_voted_up(@current_user) ? "vote_up_press.png" : "vote_up.png", :border => 0, :class => 'vote-item'),
+           {:action => 'vote_up', :controller => :answers, :id => answer.id}, method: :put, remote: true%>
+<div><%=answer.rating%></div>
+<%=link_to image_tag(answer.is_voted_down(@current_user) ? "vote_down_press.png" : "vote_down.png", :border => 0, :class => 'vote-item'),
+           {:action => 'vote_down', :controller => :answers, :id => answer.id}, method: :put, remote: true%>
